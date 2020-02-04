@@ -34,8 +34,8 @@
 34.	Add Rule and set the type to be HTTP
 35.	Files sit in ls -l /var/www
 36.	Go to your IPv4 and you should see the content you created eariler, such as “Hello, Mike!”.
-Download open source ERP/CRM software here: https://www.dolibarr.org/downloads
-Upload all files from dolibarr_version_number_xxx/htdocs into the folder with index.html on AWS.  You now must rename index.html to another name.  This upload will take a few minutes.  Make sure that all the files are placed in the same folder as the index file (i.e. /var/www/html/index.html).  Rename or remove the index.html file to not block the index.php file.
+- Download open source ERP/CRM software here: https://www.dolibarr.org/downloads
+- Upload all files from dolibarr_version_number_xxx/htdocs into the folder with index.html on AWS.  You now must rename index.html to another name.  This upload will take a few minutes.  Make sure that all the files are placed in the same folder as the index file (i.e. /var/www/html/index.html).  Rename or remove the index.html file to not block the index.php file.
 You will now need to create your MySQL database on AWS.  Go to AWS > Services > RDS > Create db > Standard Create > MySQL > Keep at Version 5.7.2.2 > Free tier > record down the settings as it will come in hand for the ERP setup.  For example, the db name will be in the format of “database-2”, master username and password, and keep all else the same and click on “Create database”.  This will now take a few minutes to launch.
 Once it’s done creating, go into Terminal (if on a Mac, or Command Prompt on Windows), remote to EC2, and check if mysql is on by using the command “sudo service mysqld status”.  If mysql is stopped, type “sudo service mysqld start”.  
 Go back into RDS: click on the name (“database-2”), grab the endpoint which is similar to the format of “database-2.xxx.rds.amazonaws.com“, finish your setup.
