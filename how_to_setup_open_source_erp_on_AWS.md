@@ -1,7 +1,7 @@
 # How to set up an ERP/CRM system on a LAMP stack using EC2 and RDS.
-Sign into AWS
-Open EC2
-Click Instances on Left Side
+1.  Sign into AWS
+2.  Open EC2
+3.  Click Instances on Left Side
 Click "Launch Instance"
 Select "Amazon Linux AMI 2016.09.1 (HVM), SSD Volume Type"
 Select Free Tier
