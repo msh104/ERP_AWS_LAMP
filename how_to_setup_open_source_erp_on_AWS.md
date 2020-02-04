@@ -36,19 +36,19 @@
 36.	Go to your IPv4 and you should see the content you created eariler, such as “Hello, Mike!”.
 - Download open source ERP/CRM software here: https://www.dolibarr.org/downloads
 - Upload all files from dolibarr_version_number_xxx/htdocs into the folder with index.html on AWS.  You now must rename index.html to another name.  This upload will take a few minutes.  Make sure that all the files are placed in the same folder as the index file (i.e. /var/www/html/index.html).  Rename or remove the index.html file to not block the index.php file.
-You will now need to create your MySQL database on AWS.  Go to AWS > Services > RDS > Create db > Standard Create > MySQL > Keep at Version 5.7.2.2 > Free tier > record down the settings as it will come in hand for the ERP setup.  For example, the db name will be in the format of “database-2”, master username and password, and keep all else the same and click on “Create database”.  This will now take a few minutes to launch.
-Once it’s done creating, go into Terminal (if on a Mac, or Command Prompt on Windows), remote to EC2, and check if mysql is on by using the command “sudo service mysqld status”.  If mysql is stopped, type “sudo service mysqld start”.  
-Go back into RDS: click on the name (“database-2”), grab the endpoint which is similar to the format of “database-2.xxx.rds.amazonaws.com“, finish your setup.
-To fix this error that may appear “…htdocs/conf/conf.php does not exist…create permissions”, navigate to the conf folder (it is not under htdocs as I have found some instructions have stated, but actually under html), then use these commands: “touch conf.php”, “chmod 666 conf.php”, and “sudo service httpd restart” to restart Apache.
-Create folder “documents” in html folder and give server write access to it: “mkdir documents”, “chmod 777 documents” (you can use other privileges other than 777 to restrict access and make this folder "safer"), and “sudo service httpd restart”.
-On this next install page ("Directory to store uploaded and generated documents"), place a check on the checkbox "Create database", create the "Login" user name is "root" and the password is the master password that was set up in AWS' RDS.
-Under "Database server- Superuser access", create the "Login" user name of "root" again and the same password as the previous step.
-If successful, you will see the "Configuration file" screen with a number of green check marks.
-Click on Next Step, and you will see this message “The current step may take several minutes. Please wait until the next screen is shown completely before continuing.  Please be patient...
-If everything is successful, you will see a new screen title "Database" and green check marks.
-On the following screen, create your admin login here on the "Dolibarr admin login" screen, and click the Next button.
-Congratulations.  If you now see the message "Dolibarr install or upgrade- End of setup." and "This installation was completed successfully", you have completed the install.
-Finally, create the install.lock file.  This file prevents other users from reinstalling the app.  Navigate to the “install” folder, and on Linux use the command “touch install.lock”
+- You will now need to create your MySQL database on AWS.  Go to AWS > Services > RDS > Create db > Standard Create > MySQL > - Keep at Version 5.7.2.2 > Free tier > record down the settings as it will come in hand for the ERP setup.  For example, the db name will be in the format of “database-2”, master username and password, and keep all else the same and click on “Create database”.  This will now take a few minutes to launch.
+- Once it’s done creating, go into Terminal (if on a Mac, or Command Prompt on Windows), remote to EC2, and check if mysql is on by using the command “sudo service mysqld status”.  If mysql is stopped, type “sudo service mysqld start”.  
+- Go back into RDS: click on the name (“database-2”), grab the endpoint which is similar to the format of “database-2.xxx.rds.amazonaws.com“, finish your setup.
+- To fix this error that may appear “…htdocs/conf/conf.php does not exist…create permissions”, navigate to the conf folder (it is not under htdocs as I have found some instructions have stated, but actually under html), then use these commands: “touch conf.php”, “chmod 666 conf.php”, and “sudo service httpd restart” to restart Apache.
+- Create folder “documents” in html folder and give server write access to it: “mkdir documents”, “chmod 777 documents” (you can use other privileges other than 777 to restrict access and make this folder "safer"), and “sudo service httpd restart”.
+- On this next install page ("Directory to store uploaded and generated documents"), place a check on the checkbox "Create database", create the "Login" user name is "root" and the password is the master password that was set up in AWS' RDS.
+- Under "Database server- Superuser access", create the "Login" user name of "root" again and the same password as the previous step.
+- If successful, you will see the "Configuration file" screen with a number of green check marks.
+- Click on Next Step, and you will see this message “The current step may take several minutes. Please wait until the next screen is shown completely before continuing.  Please be patient...
+- If everything is successful, you will see a new screen title "Database" and green check marks.
+- On the following screen, create your admin login here on the "Dolibarr admin login" screen, and click the Next button.
+- Congratulations.  If you now see the message "Dolibarr install or upgrade- End of setup." and "This installation was completed successfully", you have completed the install.
+- Finally, create the install.lock file.  This file prevents other users from reinstalling the app.  Navigate to the “install” folder, and on Linux use the command “touch install.lock”
 
 
 
